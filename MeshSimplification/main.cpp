@@ -1,7 +1,6 @@
 
 #include "mesh.h"
 #include "simplification.h"
-#include <windows.h> 
 
 
 Mesh mesh;

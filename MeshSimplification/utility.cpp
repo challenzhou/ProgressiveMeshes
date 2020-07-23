@@ -1,14 +1,14 @@
 #include "mesh.h"
 #include <cmath>
 
-inline void CrossProduct(double *a, double *b, double *c)
+void CrossProduct(double *a, double *b, double *c)
 {
     c[0] = a[1] * b[2] - a[2] * b[1];
     c[1] = a[2] * b[0] - a[0] * b[2];
     c[2] = a[0] * b[1] - a[1] * b[0];
 }
 
-inline void Normalize(double *a)
+void Normalize(double *a)
 {
     double length = sqrt(a[0]*a[0] + a[1]*a[1] + a[2]*a[2]);
 
@@ -21,40 +21,40 @@ inline void Normalize(double *a)
     a[2] *= inv_length;
 }
 
-inline double DotProduct(double *a, double *b)
+double DotProduct(double *a, double *b)
 {
     return a[0]*b[0] + a[1]*b[1] + a[2]*b[2];
 }
 
-inline double DotProduct4D(double *a, double *b)
+double DotProduct4D(double *a, double *b)
 {
     return a[0]*b[0] + a[1]*b[1] + a[2]*b[2] + a[3]*b[3];
 }
 
-inline void GetArea(double *normal, double &area)
+void GetArea(double *normal, double &area)
 {
     // assuming that "normal" is not normalized at this point 
     area = 0.5 * sqrt(normal[0]*normal[0] + normal[1]*normal[1] + normal[2]*normal[2]);
 }
 
 
-inline double GetDistance(double *a, double *b)
+double GetDistance(double *a, double *b)
 {
     return sqrt( pow(a[0]-b[0], 2.0) + pow(a[1]-b[1], 2.0) + pow(a[2]-b[2], 2.0) ); 
 }
 
-inline double GetLength(double *a)
+double GetLength(double *a)
 {
     return sqrt(a[0]*a[0] + a[1]*a[1] + a[2]*a[2]); 
 }
 
 
-inline void Swap(double &a, double &b)
+void Swap(double &a, double &b)
 {
     double t = a;  a = b;  b = t;
 }
 
-inline bool SolveLinearSystem(double (*matrix)[4], double *rhs, double *solution)
+bool SolveLinearSystem(double (*matrix)[4], double *rhs, double *solution)
 {  
     // perform gaussian elimination
 

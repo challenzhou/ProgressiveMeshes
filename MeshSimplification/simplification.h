@@ -12,6 +12,16 @@ struct EdgeCollapseTarget {
         for(int i = 0; i < 3; i++) optimalCoord[i] = optimalCoord_in[i];
         id   = id_in;
     }
+
+    bool operator < (const EdgeCollapseTarget  &a)const
+    {
+        return cost < a.cost;
+	}
+
+    bool operator > (const EdgeCollapseTarget  &a)const
+    {
+        return cost > a.cost;
+	}
 };
 
 struct VertexSplitTarget {
@@ -30,7 +40,7 @@ struct VertexSplitTarget {
 class Simplification {
     Mesh *mesh;
 
-    priority_queue <EdgeCollapseTarget, deque<EdgeCollapseTarget>, greater<EdgeCollapseTarget>> heap;
+    priority_queue <EdgeCollapseTarget, deque<EdgeCollapseTarget>, greater<EdgeCollapseTarget> > heap;
     list<EdgeCollapseTarget> suspendedEdgeCollapseTarget;
 
     stack<VertexSplitTarget>  vertexSplitTarget;

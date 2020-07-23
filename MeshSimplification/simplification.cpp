@@ -1,14 +1,15 @@
 
 #include "mesh.h"
 #include "simplification.h"
+#include <math.h> 
 
 #define BOUNDARY_COST 1.0
 
-
+/*
 bool operator>(const EdgeCollapseTarget &a, const EdgeCollapseTarget &b){
     return a.cost > b.cost;
 }
-
+*/
 
 
 void Simplification::InitSimplification(Mesh *mesh_in)
