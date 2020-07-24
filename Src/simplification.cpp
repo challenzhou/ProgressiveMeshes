@@ -603,9 +603,16 @@ void Simplification::ControlLevelOfDetail(int step)
     cerr << "step " << step << " " << n_target_faces << " " << mesh->n_faces << endl;
 
     if(n_target_faces < n_active_faces){
-        while(n_target_faces < n_active_faces) if(EdgeCollapse() == false) break;
+        while(n_target_faces < n_active_faces){
+    			cerr << "EdgeCollapse step: " << step << " target_faces: " << n_target_faces << " active_faces: " << n_active_faces << endl;
+				if(EdgeCollapse() == false) break;
+			}
     }else if(n_target_faces > n_active_faces){
-        while(n_target_faces > n_active_faces) VertexSplit();
+        while(n_target_faces > n_active_faces)
+			{
+    			cerr << "VertexSplit step: " << step << " target_faces: " << n_target_faces << " active_faces: " << n_active_faces << endl;
+				VertexSplit();
+			}
     }
 
 }
