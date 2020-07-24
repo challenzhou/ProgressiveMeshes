@@ -16,7 +16,7 @@ cmake_minimum_required(VERSION 3.5)
 project(ProgressiveMesh)
 
 if(NOT CMAKE_BUILD_TYPE)
-  set(CMAKE_BUILD_TYPE Release CACHE STRING "set build type to Release" FORCE)
+  set(CMAKE_BUILD_TYPE Debug CACHE STRING "set build type to Debug" FORCE)
   message(${CMAKE_BUILD_TYPE})
 endif()
 
